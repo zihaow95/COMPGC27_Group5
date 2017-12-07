@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Query</title>
+</head>
+<body>
+<div>
+    <form class="bs-example bs-example-form" role="form" action="{{url_for('querypage')}}" method="POST">
+        <br>
+        <div class="input-group" style="margin-left: 5%">
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name">
+            <input type="submit" value="query" style="margin-left: 2%" name="query">
+            <input type="submit" value="query mega" style="margin-left: 2%" name="mega">
+        </div>
+        <div>
+            {% if result %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>Pokemon Information</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type1</th>
+                    <th>Type2</th>
+                    <th>HP</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                    <th>Generation</th>
+                    <th>Legendary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result.ID}}</td>
+                    <td>{{result.Name}}</td>
+                    <td>{{result.Type1}}</td>
+                    <td>{{result.Type2}}</td>
+                    <td>{{result.HP}}</td>
+                    <td>{{result.Attack}}</td>
+                    <td>{{result.Defense}}</td>
+                    <td>{{result.Sp_Atk}}</td>
+                    <td>{{result.Sp_Def}}</td>
+                    <td>{{result.Speed}}</td>
+                    <td>{{result.Generation}}</td>
+                    <td>{{result.Legendary}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+            {% if warning %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning}}
+            </alert>
+            {% endif %}
+        </div>
+    </form>
+</div>
+</body>
+</html>
