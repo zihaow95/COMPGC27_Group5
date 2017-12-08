@@ -10,15 +10,15 @@
     #left,#right { display: table-cell; }
 </style>
 
-
+<!--user's team-->
 <div id="left">
     <form class="bs-example bs-example-form" role="form" action="{{url_for('querypage')}}" method="POST">
         <h2>Please form your team</h2>
 
         <br>
 <!--enter pokemon 1-->
-        <h3>Please enter the first pokemon</h3>
         <div class="input-group" style="margin-left: 5%">
+            <p>Please enter the first pokemon</p>
             {% if result1 %}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name1"
             value="{{ result1.Name }}" >
@@ -31,8 +31,8 @@
 
         <br>
 <!--enter pokemon 2-->
-        <h3>Please enter the second pokemon</h3>
         <div class="input-group" style="margin-left: 5%">
+            <p>Please enter the second pokemon</p>
             {% if result2 %}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2"
             value="{{ result2.Name }}">
@@ -46,8 +46,8 @@
 <!--enter pokemon 3-->
         <br>
 
-        <h3>Please enter the third pokemon</h3>
         <div class="input-group" style="margin-left: 5%">
+            <p>Please enter the third pokemon</p>
             {% if result3%}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3"
             value="{{ result3.Name }}">
@@ -222,13 +222,15 @@
     </form>
 </div>
 
+<!--rival's team-->
 <div id="right">
     <form class="bs-example bs-example-form" role="form" action="{{url_for('querypage')}}" method="POST">
-<!--enter rival pokemon 1-->
+
         <h2>What about your rival's team</h2>
         <br>
-        <h3>Please enter the first pokemon</h3>
+<!--enter rival pokemon 1-->
         <div class="input-group" style="margin-left: 5%">
+            <p>Please enter the first pokemon</p>
             {% if result4 %}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name4"
             value="{{ result4.Name }}" >
@@ -241,8 +243,8 @@
 
         <br>
 <!--enter rival pokemon 2-->
-        <h3>Please enter the second pokemon</h3>
         <div class="input-group" style="margin-left: 5%">
+            <p>Please enter the second pokemon</p>
             {% if result5 %}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name5"
             value="{{ result5.Name }}">
@@ -255,8 +257,8 @@
 
         <br>
 <!--enter rival pokemon 3 -->
-        <h3>Please enter the third pokemon</h3>
         <div class="input-group" style="margin-left: 5%">
+            <p>Please enter the third pokemon</p>
             {% if result6 %}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name6"
             value="{{ result6.Name }}">
