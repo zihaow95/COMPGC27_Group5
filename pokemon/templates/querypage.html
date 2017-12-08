@@ -5,10 +5,19 @@
     <title>Pokemon Query</title>
 </head>
 <body>
-<div>
+
+<style>
+    #left,#right { display: table-cell; }
+</style>
+
+
+<div id="left">
     <form class="bs-example bs-example-form" role="form" action="{{url_for('querypage')}}" method="POST">
+        <h2>Please form your team</h2>
+
         <br>
-        <h2>Please enter the first pokemon</h2>
+<!--enter pokemon 1-->
+        <h3>Please enter the first pokemon</h3>
         <div class="input-group" style="margin-left: 5%">
             {% if result1 %}
             <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name1"
@@ -20,6 +29,36 @@
             <input type="submit" value="add" style="margin-left: 2%" name="add1">
         </div>
 
+        <br>
+<!--enter pokemon 2-->
+        <h3>Please enter the second pokemon</h3>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result2 %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2"
+            value="{{ result2.Name }}">
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query2">
+            <input type="submit" value="add" style="margin-left: 2%" name="add2">
+        </div>
+
+<!--enter pokemon 3-->
+        <br>
+
+        <h3>Please enter the third pokemon</h3>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result3%}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3"
+            value="{{ result3.Name }}">
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query3">
+            <input type="submit" value="add" style="margin-left: 2%" name="add3">
+        </div>
+
+<!--pokemon 1 infomation display-->
         <div>
             {% if result1 %}
             <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
@@ -72,18 +111,7 @@
             {% endif %}
         </div>
 
-        <br>
-        <h2>Please enter the second pokemon</h2>
-        <div class="input-group" style="margin-left: 5%">
-            {% if result2 %}
-            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2"
-            value="{{ result2.Name }}">
-            {% else %}
-            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2">
-            {% endif %}
-            <input type="submit" value="query" style="margin-left: 2%" name="query2">
-            <input type="submit" value="add" style="margin-left: 2%" name="add2">
-        </div>
+<!--pokemon 2 information display-->
         <div>
             {% if result2 %}
             <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
@@ -135,18 +163,8 @@
             </alert>
             {% endif %}
         </div>
-        <br>
-        <h2>Please enter the third pokemon</h2>
-        <div class="input-group" style="margin-left: 5%">
-            {% if result3%}
-            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3"
-            value="{{ result3.Name }}">
-            {% else %}
-            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3">
-            {% endif %}
-            <input type="submit" value="query" style="margin-left: 2%" name="query3">
-            <input type="submit" value="add" style="margin-left: 2%" name="add3">
-        </div>
+
+<!--pokemon 3 information display-->
         <div>
             {% if result3 %}
             <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
@@ -198,7 +216,220 @@
             </alert>
             {% endif %}
         </div>
+
+        <br>
+
     </form>
 </div>
+
+<div id="right">
+    <form class="bs-example bs-example-form" role="form" action="{{url_for('querypage')}}" method="POST">
+<!--enter rival pokemon 1-->
+        <h2>What about your rival's team</h2>
+        <br>
+        <h3>Please enter the first pokemon</h3>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result4 %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name4"
+            value="{{ result4.Name }}" >
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name4">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query4">
+            <input type="submit" value="add" style="margin-left: 2%" name="add4">
+        </div>
+
+        <br>
+<!--enter rival pokemon 2-->
+        <h3>Please enter the second pokemon</h3>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result5 %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name5"
+            value="{{ result5.Name }}">
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name5">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query5">
+            <input type="submit" value="add" style="margin-left: 2%" name="add5">
+        </div>
+
+        <br>
+<!--enter rival pokemon 3 -->
+        <h3>Please enter the third pokemon</h3>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result6 %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name6"
+            value="{{ result6.Name }}">
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name6">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query6">
+            <input type="submit" value="add" style="margin-left: 2%" name="add6">
+        </div>
+
+<!--rival pokemon 1 information display-->
+        <div>
+            {% if result4 %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>Pokemon 4 Information</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type1</th>
+                    <th>Type2</th>
+                    <th>HP</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                    <th>Generation</th>
+                    <th>Legendary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result4.ID}}</td>
+                    <td>{{result4.Name}}</td>
+                    <td>{{result4.Type1}}</td>
+                    <td>{{result4.Type2}}</td>
+                    <td>{{result4.HP}}</td>
+                    <td>{{result4.Attack}}</td>
+                    <td>{{result4.Defense}}</td>
+                    <td>{{result4.Sp_Atk}}</td>
+                    <td>{{result4.Sp_Def}}</td>
+                    <td>{{result4.Speed}}</td>
+                    <td>{{result4.Generation}}</td>
+                    <td>{{result4.Legendary}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if addation4 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{addation4}}
+            </alert>
+            {% endif %}
+
+            {% if warning4 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning4}}
+            </alert>
+            {% endif %}
+        </div>
+
+<!--rival pokemon 2 information display-->
+        <div>
+            {% if result5 %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>Pokemon 5 Information</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type1</th>
+                    <th>Type2</th>
+                    <th>HP</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                    <th>Generation</th>
+                    <th>Legendary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result5.ID}}</td>
+                    <td>{{result5.Name}}</td>
+                    <td>{{result5.Type1}}</td>
+                    <td>{{result5.Type2}}</td>
+                    <td>{{result5.HP}}</td>
+                    <td>{{result5.Attack}}</td>
+                    <td>{{result5.Defense}}</td>
+                    <td>{{result5.Sp_Atk}}</td>
+                    <td>{{result5.Sp_Def}}</td>
+                    <td>{{result5.Speed}}</td>
+                    <td>{{result5.Generation}}</td>
+                    <td>{{result5.Legendary}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if addation5 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{addation5}}
+            </alert>
+            {% endif %}
+
+            {% if warning5 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning5}}
+            </alert>
+            {% endif %}
+        </div>
+
+<!--rival pokemon 3 information display        -->
+        <div>
+            {% if result6 %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>Pokemon 6 Information</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type1</th>
+                    <th>Type2</th>
+                    <th>HP</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                    <th>Generation</th>
+                    <th>Legendary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result6.ID}}</td>
+                    <td>{{result6.Name}}</td>
+                    <td>{{result6.Type1}}</td>
+                    <td>{{result6.Type2}}</td>
+                    <td>{{result6.HP}}</td>
+                    <td>{{result6.Attack}}</td>
+                    <td>{{result6.Defense}}</td>
+                    <td>{{result6.Sp_Atk}}</td>
+                    <td>{{result6.Sp_Def}}</td>
+                    <td>{{result6.Speed}}</td>
+                    <td>{{result6.Generation}}</td>
+                    <td>{{result6.Legendary}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if addation6 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{addation6}}
+            </alert>
+            {% endif %}
+
+            {% if warning6 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning6}}
+            </alert>
+            {% endif %}
+        </div>
+
+        <br>
+
+    </form>
+</div>
+
 </body>
 </html>
