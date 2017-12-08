@@ -8,15 +8,22 @@
 <div>
     <form class="bs-example bs-example-form" role="form" action="{{url_for('querypage')}}" method="POST">
         <br>
+        <h2>Please enter the first pokemon</h2>
         <div class="input-group" style="margin-left: 5%">
-            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name">
-            <input type="submit" value="query" style="margin-left: 2%" name="query">
-            <input type="submit" value="query mega" style="margin-left: 2%" name="mega">
+            {% if result1 %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name1"
+            value="{{ result1.Name }}" >
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name1">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query1">
+            <input type="submit" value="add" style="margin-left: 2%" name="add1">
         </div>
+
         <div>
-            {% if result %}
+            {% if result1 %}
             <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
-                <caption>Pokemon Information</caption>
+                <caption>Pokemon 1 Information</caption>
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -35,25 +42,159 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{{result.ID}}</td>
-                    <td>{{result.Name}}</td>
-                    <td>{{result.Type1}}</td>
-                    <td>{{result.Type2}}</td>
-                    <td>{{result.HP}}</td>
-                    <td>{{result.Attack}}</td>
-                    <td>{{result.Defense}}</td>
-                    <td>{{result.Sp_Atk}}</td>
-                    <td>{{result.Sp_Def}}</td>
-                    <td>{{result.Speed}}</td>
-                    <td>{{result.Generation}}</td>
-                    <td>{{result.Legendary}}</td>
+                    <td>{{result1.ID}}</td>
+                    <td>{{result1.Name}}</td>
+                    <td>{{result1.Type1}}</td>
+                    <td>{{result1.Type2}}</td>
+                    <td>{{result1.HP}}</td>
+                    <td>{{result1.Attack}}</td>
+                    <td>{{result1.Defense}}</td>
+                    <td>{{result1.Sp_Atk}}</td>
+                    <td>{{result1.Sp_Def}}</td>
+                    <td>{{result1.Speed}}</td>
+                    <td>{{result1.Generation}}</td>
+                    <td>{{result1.Legendary}}</td>
                 </tr>
                 </tbody>
             </table>
             {% endif %}
-            {% if warning %}
+
+            {% if addation1 %}
             <alert class="alert-warning" style="margin-left: 5%">
-                {{warning}}
+                {{addation1}}
+            </alert>
+            {% endif %}
+
+            {% if warning1 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning1}}
+            </alert>
+            {% endif %}
+        </div>
+
+        <br>
+        <h2>Please enter the second pokemon</h2>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result2 %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2"
+            value="{{ result2.Name }}">
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name2">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query2">
+            <input type="submit" value="add" style="margin-left: 2%" name="add2">
+        </div>
+        <div>
+            {% if result2 %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>Pokemon 2 Information</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type1</th>
+                    <th>Type2</th>
+                    <th>HP</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                    <th>Generation</th>
+                    <th>Legendary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result2.ID}}</td>
+                    <td>{{result2.Name}}</td>
+                    <td>{{result2.Type1}}</td>
+                    <td>{{result2.Type2}}</td>
+                    <td>{{result2.HP}}</td>
+                    <td>{{result2.Attack}}</td>
+                    <td>{{result2.Defense}}</td>
+                    <td>{{result2.Sp_Atk}}</td>
+                    <td>{{result2.Sp_Def}}</td>
+                    <td>{{result2.Speed}}</td>
+                    <td>{{result2.Generation}}</td>
+                    <td>{{result2.Legendary}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if addation2 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{addation2}}
+            </alert>
+            {% endif %}
+
+            {% if warning2 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning2}}
+            </alert>
+            {% endif %}
+        </div>
+        <br>
+        <h2>Please enter the third pokemon</h2>
+        <div class="input-group" style="margin-left: 5%">
+            {% if result3%}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3"
+            value="{{ result3.Name }}">
+            {% else %}
+            <input type="text" class ="form-control" style="display: inline;width: 50%;height: 25px" name="Pokemon_name3">
+            {% endif %}
+            <input type="submit" value="query" style="margin-left: 2%" name="query3">
+            <input type="submit" value="add" style="margin-left: 2%" name="add3">
+        </div>
+        <div>
+            {% if result3 %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>Pokemon 3 Information</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type1</th>
+                    <th>Type2</th>
+                    <th>HP</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                    <th>Generation</th>
+                    <th>Legendary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result3.ID}}</td>
+                    <td>{{result3.Name}}</td>
+                    <td>{{result3.Type1}}</td>
+                    <td>{{result3.Type2}}</td>
+                    <td>{{result3.HP}}</td>
+                    <td>{{result3.Attack}}</td>
+                    <td>{{result3.Defense}}</td>
+                    <td>{{result3.Sp_Atk}}</td>
+                    <td>{{result3.Sp_Def}}</td>
+                    <td>{{result3.Speed}}</td>
+                    <td>{{result3.Generation}}</td>
+                    <td>{{result3.Legendary}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if addation3 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{addation3}}
+            </alert>
+            {% endif %}
+
+            {% if warning3 %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning3}}
             </alert>
             {% endif %}
         </div>
