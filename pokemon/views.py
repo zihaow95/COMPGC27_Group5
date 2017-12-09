@@ -2,7 +2,9 @@ import configparser
 import flask
 from flask import render_template, g
 import sqlite3
-from pokemon_query import validName,queryPokemon
+from pokemon_query import validName,queryPokemon, radar
+import numpy as np
+import matplotlib.pyplot as plt
 
 app = flask.Flask(__name__)
 
@@ -34,6 +36,7 @@ def querypage():
         if name != 0:
             result1 = queryPokemon(name)
             result[0] = result1
+            radar(result1, 'result1')
             return render_template("querypage.html", result1=result[0], result2= result[1], result3=result[2],
                                    result4=result[3], result5 = result[4], result6 = result[5])
         else:
@@ -47,6 +50,7 @@ def querypage():
         if name != 0:
             result2 = queryPokemon(name)
             result[1]=result2
+            radar(result2, 'result2')
             return render_template("querypage.html", result1=result[0], result2= result[1], result3=result[2],
                                    result4=result[3], result5 = result[4], result6 = result[5])
         else:
@@ -60,6 +64,7 @@ def querypage():
         if name != 0:
             result3 = queryPokemon(name)
             result[2] = result3
+            radar(result3, 'result3')
             return render_template("querypage.html", result1=result[0], result2= result[1], result3=result[2],
                                    result4=result[3], result5 = result[4], result6 = result[5])
         else:
@@ -112,6 +117,8 @@ def querypage():
 # rival's team
 
 # rival's team
+
+# rival's team
     # query 4th pokemon
     elif flask.request.method == 'POST' and flask.request.form.get('query4', None) == 'query':
         pokemon_name = flask.request.form["Pokemon_name4"]
@@ -119,6 +126,7 @@ def querypage():
         if name != 0:
             result4 = queryPokemon(name)
             result[3]=result4
+            radar(result4, 'result4')
             return render_template("querypage.html", result1=result[0], result2= result[1], result3=result[2],
                                    result4=result[3], result5 = result[4], result6 = result[5])
         else:
@@ -132,6 +140,7 @@ def querypage():
         if name != 0:
             result5 = queryPokemon(name)
             result[4]=result5
+            radar(result5, 'result5')
             return render_template("querypage.html", result1=result[0], result2= result[1], result3=result[2],
                                    result4=result[3], result5 = result[4], result6 = result[5])
         else:
@@ -145,6 +154,7 @@ def querypage():
         if name != 0:
             result6 = queryPokemon(name)
             result[5] = result6
+            radar(result6, 'result6')
             return render_template("querypage.html", result1=result[0], result2= result[1], result3=result[2],
                                    result4=result[3], result5 = result[4], result6 = result[5])
         else:
