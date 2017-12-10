@@ -2,6 +2,8 @@ import sqlite3
 import re
 import numpy as np
 import matplotlib.pyplot as plt
+from nn import feedforward
+
 
 def getPokemonNames():
     pokemondb = sqlite3.connect("pokemon.db")
@@ -17,6 +19,7 @@ def getPokemonNames():
             pokemon_names.append(name)
 
     return pokemon_names
+
 
 def validName(name):
     name = name.replace(" ", "").strip().lower()
@@ -40,11 +43,12 @@ def queryPokemon(name):
         pokemon_info[info_key[i]] = pokemon[0][i]
     return pokemon_info
 
+
 def radar(result, string):
     labels = np.array(['HP', 'Attack', 'Defence', 'Sp. Attack', 'Sp. Defence', 'Speed'])
     dataLength = 6
-    data  = np.array([result['HP'], result["Attack"], result["Defense"],
-                      result["Sp_Atk"], result["Sp_Def"], result["Speed"]])
+    data = np.array([result['HP'], result["Attack"], result["Defense"],
+                     result["Sp_Atk"], result["Sp_Def"], result["Speed"]])
     angles = np.linspace(0, 2 * np.pi, dataLength, endpoint=False)
     data = np.concatenate((data, [data[0]]))
     angles = np.concatenate((angles, [angles[0]]))
@@ -59,5 +63,4 @@ def radar(result, string):
     ax.grid(True)
     plt.savefig("static/images/{}.png".format(string))
     return
-
 
