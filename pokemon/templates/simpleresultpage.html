@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Result</title>
+</head>
+<body>
+
+    <h2 align="center">{{win_lose}}</h2>
+
+    <table align="center" cellpadding="10">
+        <caption>Dtailed report</caption>
+        <thead>
+            <tr>
+                <th>Your Pokemon</th>
+                <th></th>
+                <th>Rival's Pokemon</th>
+                <th>Winners</th>
+            </tr>
+        </thead>
+        <tbody align="center">
+            <tr>
+                <td>{{user_p1}}</td>
+                <td>vs</td>
+                <td>{{rival_p1}}</td>
+                <td>{{ winner_1 }}</td>
+            </tr>
+            <tr>
+                <td>{{user_p2}}</td>
+                <td>vs</td>
+                <td>{{rival_p2}}</td>
+                <td>{{ winner_2 }}</td>
+            </tr>
+            <tr>
+                <td>{{user_p3}}</td>
+                <td>vs</td>
+                <td>{{rival_p3}}</td>
+                <td>{{ winner_3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div align="center">
+    <form action="{{ url_for('querypage') }}" method="post">
+        <input type="submit" value="Back to homepage" style="width: 200px; height: 150%;" name="back" onclick="alert">
+    </form>
+
+</div>
+
+</body>
+</html>
