@@ -22,7 +22,7 @@ app = flask.Flask(__name__)
 #         g.db.close()
 result = [0, 0, 0, 0, 0, 0]
 name_list = [0, 0, 0, 0, 0, 0]
-
+needToAddWarning = ['', '', '', '', '', '']
 
 @app.route('/', methods=["GET", "POST"])
 def querypage():
@@ -199,31 +199,56 @@ def querypage():
     else:
         return render_template("querypage.html")
 
-    if flask.request.method == 'POST' and flask.request.form.get('battle', None) == 'Battle':
-        return redirect('simpleresultpage')
+    if flask.request.method == 'POST' and flask.request.form.get('battle', None) == ' ':
+        if 0 in result:
+            zeros = []
+            for i in range(6):
+                if result[i]==0:
+                    zeros.append(i)
+            for i in zeros:
+                needToAddWarning[i] = 'Please add a pokemon'
+            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+                                   result4=result[3], result5=result[4], result6=result[5],
+                                   needToAddWarning1=needToAddWarning[0], needToAddWarning2=needToAddWarning[1],
+                                   needToAddWarning3=needToAddWarning[2], needToAddWarning4=needToAddWarning[3],
+                                   needToAddWarning5=needToAddWarning[4], needToAddWarning6=needToAddWarning[5])
+        else:
+            return redirect('simpleresultpage')
+
+
+            # return redirect('simpleresultpage')
 
 
 @app.route('/simpleresultpage', methods=["GET", "POST"])
 def simpleresultpage():
-    winner1 = prediction(result[0], result[3])
-    if winner1 == 'win':
+    predicts = []
+    predict1 = prediction(result[0], result[3])
+    predicts.append(predict1)
+    if predict1 == 'win':
         winner1 = result[0]['Name']
     else:
         winner1 = result[3]['Name']
-    winner2 = prediction(result[1], result[4])
-    if winner2 == 'win':
+    predict2 = prediction(result[1], result[4])
+    predicts.append(predict2)
+    if predict2 == 'win':
         winner2 = result[1]['Name']
     else:
         winner2 = result[4]['Name']
-    winner3 = prediction(result[2], result[5])
-    if winner3 == 'win':
+    predict3 = prediction(result[2], result[5])
+    predicts.append(predict3)
+    if predict3 == 'win':
         winner3 = result[2]['Name']
     else:
         winner3 = result[5]['Name']
 
+    if predicts.count('win') >= 2:
+        win_lose = "You win the game!"
+    else:
+        win_lose = "You lose the game"
+
     return render_template("simpleresultpage.html", user_p1=name_list[0], user_p2=name_list[1], user_p3=name_list[2],
                            rival_p1=name_list[3], rival_p2=name_list[4], rival_p3=name_list[5],
-                           winner_1=winner1, winner_2=winner2, winner_3=winner3)
+                           win_lose=win_lose, winner_1=winner1, winner_2=winner2, winner_3=winner3)
 
     if flask.request.method == 'POST' and flask.request.form.get('back', None) == 'Back to homepage':
         return redirect('querypage')

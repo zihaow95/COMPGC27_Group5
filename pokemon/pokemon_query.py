@@ -45,7 +45,9 @@ def queryPokemon(name):
 
 
 def radar(result, string):
-    labels = np.array(['HP', 'Attack', 'Defence', 'Sp. Attack', 'Sp. Defence', 'Speed'])
+    labels = np.array(
+        ['     HP', '     Atk', 'Def      ', 'Sp.      \n Atk       ', 'Sp.                \n Def                 ',
+         '               Speed'])
     dataLength = 6
     data = np.array([result['HP'], result["Attack"], result["Defense"],
                      result["Sp_Atk"], result["Sp_Def"], result["Speed"]])
@@ -57,10 +59,9 @@ def radar(result, string):
     ax.plot(angles, data, 'ro-', linewidth=1)
     ax.fill(angles, data, facecolor='r', alpha=0.25)
     # colour line width, and transparency (alpha) could be changed
-    ax.set_thetagrids(angles * 180 / np.pi, labels)
+    ax.set_thetagrids(angles * 180 / np.pi, labels, fontsize=24, va='bottom')
     ax.set_rlim(0, 255)
     # Max: 255 190 230 194 230 180 --> limit 255
     ax.grid(True)
     plt.savefig("static/images/{}.png".format(string))
     return
-
