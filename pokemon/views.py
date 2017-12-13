@@ -28,7 +28,8 @@ needToAddWarning = ['', '', '', '', '', '']
 def querypage():
     if flask.request.method == 'GET':
         result0 = {}
-        return render_template("querypage.html", result0=result0)
+        return render_template("querypage.html",  result1=result[0], result2=result[1], result3=result[2],
+                                   result4=result[3], result5=result[4], result6=result[5], result0=result0)
     # user's team
     # query 1st pokemon
     elif flask.request.method == 'POST' and flask.request.form.get('query1', None) == "query":
@@ -38,7 +39,7 @@ def querypage():
             result1 = queryPokemon(name)
             result[0] = result1
             radar(result1, 'result1')
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", info = result,result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
             return render_template("querypage.html", result2=result[1], result3=result[2],
@@ -52,10 +53,10 @@ def querypage():
             result2 = queryPokemon(name)
             result[1] = result2
             radar(result2, 'result2')
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
-            return render_template("querypage.html", result1=result[0], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    warning2="Please enter the correct name.")
     # query 3rd pokemon
@@ -66,10 +67,10 @@ def querypage():
             result3 = queryPokemon(name)
             result[2] = result3
             radar(result3, 'result3')
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    warning3="Please enter the correct name.")
 
@@ -79,11 +80,11 @@ def querypage():
         name = validName(pokemon_name)
         if name != 0:
             name_list[0] = (pokemon_name)
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    addation1="{} added".format(pokemon_name))
         else:
-            return render_template("querypage.html", result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    warning1="Please enter the correct name.")
     # add 2nd pokemon
@@ -92,11 +93,11 @@ def querypage():
         name = validName(pokemon_name)
         if name != 0:
             name_list[1] = (pokemon_name)
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    addation2="{} added".format(pokemon_name))
         else:
-            return render_template("querypage.html", result1=result[0], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    warning2="Please enter the correct name.")
     # add 3rd pokemon
@@ -105,11 +106,11 @@ def querypage():
         name = validName(pokemon_name)
         if name != 0:
             name_list[2] = (pokemon_name)
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    addation3="{} added".format(pokemon_name))
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    warning3="Please enter the correct name.")
 
@@ -121,10 +122,10 @@ def querypage():
             result4 = queryPokemon(name)
             result[3] = result4
             radar(result4, 'result4')
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result5=result[4], result6=result[5],
                                    warning4="Please enter the correct name.")
     # query 5th pokemon
@@ -135,10 +136,10 @@ def querypage():
             result5 = queryPokemon(name)
             result[4] = result5
             radar(result5, 'result5')
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result6=result[5],
                                    warning5="Please enter the correct name.")
     # query 6th pokemon
@@ -149,10 +150,10 @@ def querypage():
             result6 = queryPokemon(name)
             result[5] = result6
             radar(result6, 'result6')
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4],
                                    warning6="Please enter the correct name.")
 
@@ -162,11 +163,11 @@ def querypage():
         name = validName(pokemon_name)
         if name != 0:
             name_list[3] = (pokemon_name)
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    addation4="{} added".format(pokemon_name))
         else:
-            return render_template("querypage.html", result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    warning4="Please enter the correct name.")
     # add 5th pokrmon
@@ -175,11 +176,11 @@ def querypage():
         name = validName(pokemon_name)
         if name != 0:
             name_list[4] = (pokemon_name)
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    addation5="{} added".format(pokemon_name))
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result6=result[5],
                                    warning5="Please enter the correct name.")
     # add 6th pokemon
@@ -188,11 +189,11 @@ def querypage():
         name = validName(pokemon_name)
         if name != 0:
             name_list[5] = (pokemon_name)
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5],
                                    addation6="{} added".format(pokemon_name))
         else:
-            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result=result, result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4],
                                    warning6="Please enter the correct name.")
 

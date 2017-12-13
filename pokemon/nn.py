@@ -1,5 +1,6 @@
 import numpy as np
 
+# from pokemon_query import queryPokemon, validName, getPokemonNames
 # bias = np.asarray([np.asarray([-0.41672516, -0.08315316, -2.1361076, 1.6402711, -1.79720985,
 #                                -0.82247295, 0.50268592, -1.24528809, -1.06030302, -0.90919977]),
 #                    np.asarray([0.84780166, 1.82571246, 0.36449871, -1.011711, 0.74495357,
@@ -119,16 +120,16 @@ def feedforward(X):
         return 'win'
 
 
-battle1 = np.asarray([1, 0.5, 50, 64, 50, 45, 50, 41, 4, 1, 70, 70, 40, 60, 40, 60])
-battle2 = np.asarray([0.25, 1, 50, 47, 50, 57, 50, 65, 0.5, 1, 60, 50, 150, 50, 150, 60])
-battle3 = np.asarray([2, 2, 91, 90, 72, 90, 129, 108, 0.5, 1, 91, 129, 90, 72, 90, 108])
-battle4 = np.asarray([1, 1, 50, 20, 55, 25, 25, 30, 1, 0.5, 100, 110, 90, 85, 90, 60])
-battle5 = np.asarray([2, 2, 70, 60, 125, 115, 70, 55, 1, 1, 20, 10, 230, 10, 230, 5])
-print(feedforward(battle1))
-print(feedforward(battle2))
-print(feedforward(battle3))
-print(feedforward(battle4))
-print(feedforward(battle5))
+# battle1 = np.asarray([1, 0.5, 50, 64, 50, 45, 50, 41, 4, 1, 70, 70, 40, 60, 40, 60])
+# battle2 = np.asarray([0.25, 1, 50, 47, 50, 57, 50, 65, 0.5, 1, 60, 50, 150, 50, 150, 60])
+# battle3 = np.asarray([2, 2, 91, 90, 72, 90, 129, 108, 0.5, 1, 91, 129, 90, 72, 90, 108])
+# battle4 = np.asarray([1, 1, 50, 20, 55, 25, 25, 30, 1, 0.5, 100, 110, 90, 85, 90, 60])
+# battle5 = np.asarray([2, 2, 70, 60, 125, 115, 70, 55, 1, 1, 20, 10, 230, 10, 230, 5])
+# print(feedforward(battle1))
+# print(feedforward(battle2))
+# print(feedforward(battle3))
+# print(feedforward(battle4))
+# print(feedforward(battle5))
 
 type_list = ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
              'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy']
@@ -177,15 +178,19 @@ def formFeatures(p1_info, p2_info):
                counter_dict['{}'.format(p2_type2)][type_list.index('{}'.format(p1_type2))]
 
     features = np.asarray([counter1, counter2, p1_info['{}'.format('HP')], p1_info['{}'.format('Attack')],
-                           p1_info['{}'.format('Defense')],p1_info['{}'.format('Sp_Atk')],
-                           p1_info['{}'.format('Sp_Def')],p1_info['{}'.format('Speed')],
+                           p1_info['{}'.format('Defense')], p1_info['{}'.format('Sp_Atk')],
+                           p1_info['{}'.format('Sp_Def')], p1_info['{}'.format('Speed')],
                            counter3, counter4, p2_info['{}'.format('HP')], p2_info['{}'.format('Attack')],
                            p2_info['{}'.format('Defense')], p2_info['{}'.format('Sp_Atk')],
                            p2_info['{}'.format('Sp_Def')], p2_info['{}'.format('Speed')]
                            ])
     return features
 
+
+# mega_x= {'ID': 8, 'Name': 'Mega Charizard X', 'rename': 'megacharizardx', 'Type1': 'Fire', 'Type2': 'Dragon', 'HP': 78, 'Attack': 130, 'Defense': 111, 'Sp_Atk': 130, 'Sp_Def': 85, 'Speed': 100, 'Generation': 1, 'Legendary': 'False'}
+# Victreebel={'ID': 78, 'Name': 'Victreebel', 'rename': 'victreebel', 'Type1': 'Grass', 'Type2': 'Poison', 'HP': 80, 'Attack': 105, 'Defense': 65, 'Sp_Atk': 100, 'Sp_Def': 70, 'Speed': 70, 'Generation': 1, 'Legendary': 'False'}
+# print(formFeatures(mega_x, Victreebel))
+
 def prediction(info1, info2):
     features = formFeatures(info1, info2)
     return feedforward(features)
-

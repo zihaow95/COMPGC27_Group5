@@ -46,8 +46,8 @@ def queryPokemon(name):
 
 def radar(result, string):
     labels = np.array(
-        ['     HP', '     Atk', 'Def      ', 'Sp.      \n Atk       ', 'Sp.                \n Def                 ',
-         '               Speed'])
+        ['   HP', '  Atk', 'Def  ', 'Sp.    \n Atk     ', 'Sp.              \n Def               ',
+         '             Speed'])
     dataLength = 6
     data = np.array([result['HP'], result["Attack"], result["Defense"],
                      result["Sp_Atk"], result["Sp_Def"], result["Speed"]])
