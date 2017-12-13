@@ -21,6 +21,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 </style>
 
 <nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top">
@@ -123,17 +133,19 @@
                 <form class="form-inline" role="form" action="{{url_for('querypage')}}" method="POST">
                     <div class="input-group" style="margin-left: 5%" align="center">
                         {% if result1 %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name1"
                                value="{{ result1.Name }}">
                         {% else %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name1">
                         {% endif %}
                         <input type="submit" value="query" style="margin-left: 2%;height: 30px" name="query1">
-                        <input type="submit" value="add" style="margin-left: 2%;height: 30px" name="add1">
+                        <input type="submit" value="add" style="margin-left: 5%;height: 30px" name="add1">
                     </div>
                 </form>
             </div>
@@ -143,17 +155,19 @@
                 <form class="form-inline" role="form" action="{{url_for('querypage')}}" method="POST">
                     <div class="input-group" style="margin-left: 5%" align="center">
                         {% if result4 %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name4"
                                value="{{ result4.Name }}">
                         {% else %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name4">
                         {% endif %}
                         <input type="submit" value="query" style="margin-left: 2%;height: 30px" name="query4">
-                        <input type="submit" value="add" style="margin-left: 2%;height: 30px" name="add4">
+                        <input type="submit" value="add" style="margin-left: 5%;height: 30px" name="add4">
                     </div>
                 </form>
             </div>
@@ -215,17 +229,19 @@
                 <form class="form-inline" role="form" action="{{url_for('querypage')}}" method="POST">
                     <div class="input-group" style="margin-left: 5%" align="center">
                         {% if result2 %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name2"
                                value="{{ result2.Name }}">
                         {% else %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name2">
                         {% endif %}
                         <input type="submit" value="query" style="margin-left: 2%;height: 30px" name="query2">
-                        <input type="submit" value="add" style="margin-left: 2%;height: 30px" name="add2">
+                        <input type="submit" value="add" style="margin-left: 5%;height: 30px" name="add2">
                     </div>
                 </form>
             </div>
@@ -234,17 +250,19 @@
                 <form class="form-inline" role="form" action="{{url_for('querypage')}}" method="POST">
                     <div class="input-group" style="margin-left: 5%" align="center">
                         {% if result5 %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name5"
                                value="{{ result5.Name }}">
                         {% else %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name5">
                         {% endif %}
                         <input type="submit" value="query" style="margin-left: 2%;height: 30px" name="query5">
-                        <input type="submit" value="add" style="margin-left: 2%;height: 30px" name="add5">
+                        <input type="submit" value="add" style="margin-left: 5%;height: 30px" name="add5">
                     </div>
                 </form>
             </div>
@@ -306,17 +324,19 @@
                 <form class="form-inline" role="form" action="{{url_for('querypage')}}" method="POST">
                     <div class="input-group" style="margin-left: 5%" align="center">
                         {% if result3 %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name3"
                                value="{{ result3.Name }}">
                         {% else %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name3">
                         {% endif %}
                         <input type="submit" value="query" style="margin-left: 2%;height: 30px" name="query3">
-                        <input type="submit" value="add" style="margin-left: 2%;height: 30px" name="add3">
+                        <input type="submit" value="add" style="margin-left: 5%;height: 30px" name="add3">
                     </div>
                 </form>
             </div>
@@ -325,17 +345,19 @@
                 <form class="form-inline" role="form" action="{{url_for('querypage')}}" method="POST">
                     <div class="input-group" style="margin-left: 5%" align="center">
                         {% if result6 %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name6"
                                value="{{ result6.Name }}">
                         {% else %}
-                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16" height="16"/></span>
+                        <span class="input-group-addon"><img src="static/images/pokeball.png" width="16"
+                                                             height="16"/></span>
                         <input type="text" class="form-control" style="display: inline;width: 50%;height: 30px"
                                name="Pokemon_name6">
                         {% endif %}
                         <input type="submit" value="query" style="margin-left: 2%;height: 30px" name="query6">
-                        <input type="submit" value="add" style="margin-left: 2%;height: 30px" name="add6">
+                        <input type="submit" value="add" style="margin-left: 5%;height: 30px" name="add6">
                     </div>
                 </form>
             </div>
@@ -383,304 +405,268 @@
         </div>
     </div>
 </div>
-
-
 <br>
 
 <div class="landing-section features">
     <div class="container">
         <div class="row">
             <div class="col-sm-6" align="center">
-                {% if result1 %}
-                <table class="table table-bordered">
-                    <caption>Pokemon 1 Information</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <table class="table table-striped" align="center" cellpadding="10">
-                                <thead align="center">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Generation</th>
-                                </tr>
-                                </thead>
+                <ul class="nav nav-tabs">
+                    <li><a class="active" href="#pokemon_left1" data-toggle="tab">Pokemon 1</a></li>
+                    <li><a href="#pokemon_left2" data-toggle="tab">Pokemon 2</a></li>
+                    <li><a href="#pokemon_left3" data-toggle="tab">Pokemon 3</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="pokemon_left1">
+                        {% if result1 != 0 %}
+                        <div class="card">
+                            <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td align="center">{{result1.ID}}</td>
-                                    <td>{{result1.Name}}</td>
-                                    <td align="center">{{result1.Generation}}</td>
-                                </tr>
-                                </tbody>
-
-                                <thead align="center">
-                                <tr>
-                                    <th></th>
-                                    <th>Type1</th>
-                                    <th>Type2</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{result1.Type1}}</td>
-                                    <td>{{result1.Type2}}</td>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ result1.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/result1.png" height="220px" width="300px"/>
                                 </tr>
                                 </tbody>
                             </table>
-                        </td>
-                        <td>
-                            <img src="/static/images/result1.png" class="img-circle"
-                                 height="150px" width="200px"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endif %}
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Generation</th>
+                                        <th>Type1</th>
+                                        <th>Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{result1.ID}}</td>
+                                        <td>{{result1.Name}}</td>
+                                        <td>{{result1.Generation}}</td>
+                                        <td>{{result1.Type1}}</td>
+                                        <td>{{result1.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4>You need to add a pokemon</h4>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_left2">
+                        {% if result2 != 0 %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ result2.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/result2.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Generation</th>
+                                        <th>Type1</th>
+                                        <th>Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{result2.ID}}</td>
+                                        <td>{{result2.Name}}</td>
+                                        <td>{{result2.Generation}}</td>
+                                        <td>{{result2.Type1}}</td>
+                                        <td>{{result2.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4>You need to add a pokemon</h4>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_left3">
+                        {% if result3 != 0 %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ result3.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/result3.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Generation</th>
+                                        <th>Type1</th>
+                                        <th>Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{result3.ID}}</td>
+                                        <td>{{result3.Name}}</td>
+                                        <td>{{result3.Generation}}</td>
+                                        <td>{{result3.Type1}}</td>
+                                        <td>{{result3.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4>You need to add a pokemon</h4>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6" align="center">
-                {% if result4 %}
-                <table class="table table-bordered">
-                    <caption>Pokemon 4 Information</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <table class="table table-striped" align="center" cellpadding="10">
-                                <thead align="center">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Generation</th>
-                                </tr>
-                                </thead>
+                <ul class="nav nav-tabs">
+                    <li><a class="active" href="#pokemon_right1" data-toggle="tab">Pokemon 1</a></li>
+                    <li><a href="#pokemon_right2" data-toggle="tab">Pokemon 2</a></li>
+                    <li><a href="#pokemon_right3" data-toggle="tab">Pokemon 3</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="pokemon_right1">
+                        {% if result4 != 0 %}
+                        <div class="card">
+                            <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td align="center">{{result4.ID}}</td>
-                                    <td>{{result4.Name}}</td>
-                                    <td align="center">{{result4.Generation}}</td>
-                                </tr>
-                                </tbody>
-
-                                <thead align="center">
-                                <tr>
-                                    <th></th>
-                                    <th>Type1</th>
-                                    <th>Type2</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{result4.Type1}}</td>
-                                    <td>{{result4.Type2}}</td>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ result4.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/result4.png" height="220px" width="300px"/>
                                 </tr>
                                 </tbody>
                             </table>
-                        </td>
-                        <td>
-                            <img src="/static/images/result4.png" class="img-circle"
-                                 height="150px" width="200px"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6" align="center">
-                {% if result2 %}
-                <table class="table table-bordered">
-                    <caption>Pokemon 2 Information</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <table class="table table-striped" align="center" cellpadding="10">
-                                <thead align="center">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Generation</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td align="center">{{result2.ID}}</td>
-                                    <td>{{result2.Name}}</td>
-                                    <td align="center">{{result2.Generation}}</td>
-                                </tr>
-                                </tbody>
 
-                                <thead align="center">
-                                <tr>
-                                    <th></th>
-                                    <th>Type1</th>
-                                    <th>Type2</th>
-                                </tr>
-                                </thead>
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Generation</th>
+                                        <th>Type1</th>
+                                        <th>Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{result4.ID}}</td>
+                                        <td>{{result4.Name}}</td>
+                                        <td>{{result4.Generation}}</td>
+                                        <td>{{result4.Type1}}</td>
+                                        <td>{{result4.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4>You need to add a pokemon</h4>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_right2">
+                        {% if result5 != 0 %}
+                        <div class="card">
+                            <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td>{{result2.Type1}}</td>
-                                    <td>{{result2.Type2}}</td>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ result5.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/result5.png" height="220px" width="300px"/>
                                 </tr>
                                 </tbody>
                             </table>
-                        </td>
-                        <td>
-                            <img src="/static/images/result2.png" class="img-circle"
-                                 height="150px" width="200px"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endif %}
-            </div>
-            <div class="col-sm-6" align="center">
-                {% if result5 %}
-                <table class="table table-bordered">
-                    <caption>Pokemon 5 Information</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <table class="table table-striped" align="center" cellpadding="10">
-                                <thead align="center">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Generation</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td align="center">{{result5.ID}}</td>
-                                    <td>{{result5.Name}}</td>
-                                    <td align="center">{{result5.Generation}}</td>
-                                </tr>
-                                </tbody>
 
-                                <thead align="center">
-                                <tr>
-                                    <th></th>
-                                    <th>Type1</th>
-                                    <th>Type2</th>
-                                </tr>
-                                </thead>
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Generation</th>
+                                        <th>Type1</th>
+                                        <th>Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{result5.ID}}</td>
+                                        <td>{{result5.Name}}</td>
+                                        <td>{{result5.Generation}}</td>
+                                        <td>{{result5.Type1}}</td>
+                                        <td>{{result5.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4>You need to add a pokemon</h4>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_right3">
+                        {% if result6 != 0 %}
+                        <div class="card">
+                            <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td>{{result5.Type1}}</td>
-                                    <td>{{result5.Type2}}</td>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ result6.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/result6.png" height="220px" width="300px"/>
                                 </tr>
                                 </tbody>
                             </table>
-                        </td>
-                        <td>
-                            <img src="/static/images/result5.png" class="img-circle"
-                                 height="150px" width="200px"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6" align="center">
-                {% if result3 %}
-                <table class="table table-bordered">
-                    <caption>Pokemon 3 Information</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <table class="table table-striped" align="center" cellpadding="10">
-                                <thead align="center">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Generation</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td align="center">{{result3.ID}}</td>
-                                    <td>{{result3.Name}}</td>
-                                    <td align="center">{{result3.Generation}}</td>
-                                </tr>
-                                </tbody>
 
-                                <thead align="center">
-                                <tr>
-                                    <th></th>
-                                    <th>Type1</th>
-                                    <th>Type2</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{result3.Type1}}</td>
-                                    <td>{{result3.Type2}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <img src="/static/images/result3.png" class="img-circle"
-                                 height="150px" width="200px"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endif %}
-            </div>
-            <div class="col-sm-6" align="center">
-                {% if result6 %}
-                <table class="table table-bordered">
-                    <caption>Pokemon 6 Information</caption>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <table class="table table-striped" align="center" cellpadding="10">
-                                <thead align="center">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Generation</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td align="center">{{result6.ID}}</td>
-                                    <td>{{result6.Name}}</td>
-                                    <td align="center">{{result6.Generation}}</td>
-                                </tr>
-                                </tbody>
-
-                                <thead align="center">
-                                <tr>
-                                    <th></th>
-                                    <th>Type1</th>
-                                    <th>Type2</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{result6.Type1}}</td>
-                                    <td>{{result6.Type2}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <img src="/static/images/result6.png" class="img-circle"
-                                 height="150px" width="200px"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endif %}
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Generation</th>
+                                        <th>Type1</th>
+                                        <th>Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{result6.ID}}</td>
+                                        <td>{{result6.Name}}</td>
+                                        <td>{{result6.Generation}}</td>
+                                        <td>{{result6.Type1}}</td>
+                                        <td>{{result6.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4>You need to add a pokemon</h4>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
