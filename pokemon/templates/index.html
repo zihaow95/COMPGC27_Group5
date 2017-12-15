@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!--<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+{% block title %}Query{% endblock %}
+
+{% block page_content %}
+
+<br>
+<div class="landing-section features">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1" align="center">
+                <form class="form" role="form" method="POST">
+                    <h3>{% if name1 %}{{ name1 }}{% else %}Need a Name{% endif %}</h3>
+                    {{ form1.hidden_tag() }}
+                    {{ wtf.form_field(form1.name, placeholder="Please enter the first pokemon: ", class_="form-control
+                    user-icon")
+                    }}
+                    {{ wtf.form_field(form1.submit1) }}
+                    {{ wtf.form_field(form1.add1) }}
+                    {{ wtf.form_field(form1.del1) }}
+                </form>
+            </div>
+            <div class="col-sm-4 col-sm-offset-2" align="center">
+                <form class="form" role="form" method="POST">
+                    <h3>{% if name4 %}{{ name4 }}{% else %}Need a Name{% endif %}</h3>
+                    {{ form4.hidden_tag() }}
+                    {{ wtf.form_field(form4.name, placeholder="Please enter the first pokemon: ", class_="form-control")
+                    }}
+                    {{ wtf.form_field(form4.submit4) }}
+                    {{ wtf.form_field(form4.add4) }}
+                    {{ wtf.form_field(form4.del4) }}
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1" align="center">
+                <form class="form" role="form" method="POST">
+                    <h3>{% if name2 %}{{ name2 }}{% else %}Need a Name{% endif %}</h3>
+                    {{ form2.hidden_tag() }}
+                    {{ wtf.form_field(form2.name, placeholder="Please enter the second pokemon: ",
+                    class_="form-control")
+                    }}
+                    {{ wtf.form_field(form2.submit2) }}
+                    {{ wtf.form_field(form2.add2) }}
+                    {{ wtf.form_field(form2.del2) }}
+                </form>
+            </div>
+            <div class="col-sm-4 col-sm-offset-2" align="center">
+                <form class="form" role="form" method="POST">
+                    <h3>{% if name5 %}{{ name5 }}{% else %}Need a Name{% endif %}</h3>
+                    {{ form5.hidden_tag() }}
+                    {{ wtf.form_field(form5.name, placeholder="Please enter the second pokemon: ",
+                    class_="form-control")
+                    }}
+                    {{ wtf.form_field(form5.submit5) }}
+                    {{ wtf.form_field(form5.add5) }}
+                    {{ wtf.form_field(form5.del5) }}
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1" align="center">
+                <form class="form" role="form" method="POST">
+                    <h3>{% if name3 %}{{ name3 }}{% else %}Need a Name{% endif %}</h3>
+                    {{ form3.hidden_tag() }}
+                    {{ wtf.form_field(form3.name, placeholder="Please enter the third pokemon: ", class_="form-control")
+                    }}
+                    {{ wtf.form_field(form3.submit3) }}
+                    {{ wtf.form_field(form3.add3) }}
+                    {{ wtf.form_field(form3.del3) }}
+                </form>
+            </div>
+            <div class="col-sm-4 col-sm-offset-2" align="center">
+                <form class="form" role="form" method="POST">
+                    <h3>{% if name6 %}{{ name6 }}{% else %}Need a Name{% endif %}</h3>
+                    {{ form6.hidden_tag() }}
+                    {{ wtf.form_field(form6.name, placeholder="Please enter the third pokemon: ", class_="form-control")
+                    }}
+                    {{ wtf.form_field(form6.submit6) }}
+                    {{ wtf.form_field(form6.add6) }}
+                    {{ wtf.form_field(form6.del6) }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="landing-section features">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" align="center">
+                <ul class="nav nav-tabs">
+                    <li><a class="active" href="#pokemon_left1" data-toggle="tab">Pokemon 1</a></li>
+                    <li><a href="#pokemon_left2" data-toggle="tab">Pokemon 2</a></li>
+                    <li><a href="#pokemon_left3" data-toggle="tab">Pokemon 3</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="pokemon_left1">
+                        {% if pk1_info %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ pk1_info.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/pk1_radar.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th style="text-align: center;">ID</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Generation</th>
+                                        <th style="text-align: center;">Type1</th>
+                                        <th style="text-align: center;">Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{pk1_info.ID}}</td>
+                                        <td>{{pk1_info.Name}}</td>
+                                        <td>{{pk1_info.Generation}}</td>
+                                        <td>{{pk1_info.Type1}}</td>
+                                        <td>{{pk1_info.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="well well-lg">
+                            <h4>You need to add a pokemon</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_left2">
+                        {% if pk2_info %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ pk2_info.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/pk2_radar.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th style="text-align: center;">ID</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Generation</th>
+                                        <th style="text-align: center;">Type1</th>
+                                        <th style="text-align: center;">Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{ pk2_info.ID }}</td>
+                                        <td>{{ pk2_info.Name }}</td>
+                                        <td>{{ pk2_info.Generation }}</td>
+                                        <td>{{ pk2_info.Type1 }}</td>
+                                        <td>{{ pk2_info.Type2 }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="well well-lg">
+                            <h4>You need to add a pokemon</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_left3">
+                        {% if pk3_info %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ pk3_info.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/pk3_radar.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th style="text-align: center;">ID</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Generation</th>
+                                        <th style="text-align: center;">Type1</th>
+                                        <th style="text-align: center;">Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{pk3_info.ID}}</td>
+                                        <td>{{pk3_info.Name}}</td>
+                                        <td>{{pk3_info.Generation}}</td>
+                                        <td>{{pk3_info.Type1}}</td>
+                                        <td>{{pk3_info.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="well well-lg">
+                            <h4>You need to add a pokemon</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" align="center">
+                <ul class="nav nav-tabs">
+                    <li><a class="active" href="#pokemon_right1" data-toggle="tab">Pokemon 1</a></li>
+                    <li><a href="#pokemon_right2" data-toggle="tab">Pokemon 2</a></li>
+                    <li><a href="#pokemon_right3" data-toggle="tab">Pokemon 3</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="pokemon_right1">
+                        {% if pk4_info %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ pk4_info.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/pk4_radar.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th style="text-align: center;">ID</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Generation</th>
+                                        <th style="text-align: center;">Type1</th>
+                                        <th style="text-align: center;">Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{pk4_info.ID}}</td>
+                                        <td>{{pk4_info.Name}}</td>
+                                        <td>{{pk4_info.Generation}}</td>
+                                        <td>{{pk4_info.Type1}}</td>
+                                        <td>{{pk4_info.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="well well-lg">
+                            <h4>You need to add a pokemon</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_right2">
+                        {% if pk5_info %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ pk5_info.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/pk5_radar.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th style="text-align: center;">ID</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Generation</th>
+                                        <th style="text-align: center;">Type1</th>
+                                        <th style="text-align: center;">Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{pk5_info.ID}}</td>
+                                        <td>{{pk5_info.Name}}</td>
+                                        <td>{{pk5_info.Generation}}</td>
+                                        <td>{{pk5_info.Type1}}</td>
+                                        <td>{{pk5_info.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="well well-lg">
+                            <h4>You need to add a pokemon</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="pokemon_right3">
+                        {% if pk6_info %}
+                        <div class="card">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <img class="card-img-top" src="/static/images/pokemon_pic/{{ pk6_info.ID }}.png"
+                                         height="220px" width="220px" align="center"/>
+                                    <img src="/static/images/pk6_radar.png" height="220px" width="300px"/>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="card-body">
+                                <table class="table table-striped" align="center" cellpadding="10">
+                                    <thead valign="center">
+                                    <tr>
+                                        <th style="text-align: center;">ID</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Generation</th>
+                                        <th style="text-align: center;">Type1</th>
+                                        <th style="text-align: center;">Type2</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>{{pk6_info.ID}}</td>
+                                        <td>{{pk6_info.Name}}</td>
+                                        <td>{{pk6_info.Generation}}</td>
+                                        <td>{{pk6_info.Type1}}</td>
+                                        <td>{{pk6_info.Type2}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="well well-lg">
+                            <h4>You need to add a pokemon</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="col-sm-4 col-sm-offset-4" align="center">
+    <a class="btn btn-success btn-lg" href="{{ url_for('simpleresult') }}"
+       style="width: 267px; height: 60px;background: url(static/images/battle.jpg)">
+    </a>
+</div>
+
+<div class="col-sm-4 col-sm-offset-4" align="center">
+    <a class="btn btn-success btn-lg" href="{{ url_for('withOrders') }}"
+       style="width: 267px; height: 60px;background: url(static/images/battle.jpg)">
+    </a>
+</div>
+
+<br>
+<br>
+<br>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends "bootstrap/base.html" %}
+
+<html>
+{% block title %}Flasky{% endblock %}
+
+<head>
+    {% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    {% endblock %}
+</head>
+
+<body>
+
+{% block navbar %}
+<nav id="common-nav" class="navbar navbar-inverse navbar-fixed-top" style="background-color: #6aa9f8;">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hover">
+                <p style="color:white">Group 5</p>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="https://github.com/zihaow95/COMPGC27_Group5">
+                        <span class="hidden-sm" style="color:white">GitHub</span>
+                        <span class="nav-icon visible-sm"><i class="fa fa-github"></i></span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="https://www.ucl.ac.uk" style="color:white">UCL</a>
+                </li>
+                <li>
+                    <a href="https://www.satalia.com" style="color:white">SATALIA</a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+{% endblock %}
+
+{% include 'groupinfo.html' %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+{% include 'footer.html' %}
+{% endblock %}
+
+
+</body>
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% endblock %}
+</html>

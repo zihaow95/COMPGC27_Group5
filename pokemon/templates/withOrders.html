@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Orders{% endblock %}
+
+{% block page_content %}
+<div class="landing-section features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3" align="center">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center;">First</th>
+                                    <th style="text-align: center;">Second</th>
+                                    <th style="text-align: center;">Third</th>
+                                </tr>
+                                </thead>
+                                <tbody align="center">
+                                <tr>
+                                    <td>{{ team_orders[0][0].Name }}</td>
+                                    <td>{{ team_orders[0][1].Name }}</td>
+                                    <td>{{ team_orders[0][2].Name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ team_orders[1][0].Name }}</td>
+                                    <td>{{ team_orders[1][1].Name }}</td>
+                                    <td>{{ team_orders[1][2].Name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ team_orders[2][0].Name }}</td>
+                                    <td>{{ team_orders[2][1].Name }}</td>
+                                    <td>{{ team_orders[2][2].Name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ team_orders[3][0].Name }}</td>
+                                    <td>{{ team_orders[3][1].Name }}</td>
+                                    <td>{{ team_orders[3][2].Name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ team_orders[4][0].Name }}</td>
+                                    <td>{{ team_orders[4][1].Name }}</td>
+                                    <td>{{ team_orders[4][2].Name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ team_orders[5][0].Name }}</td>
+                                    <td>{{ team_orders[5][1].Name }}</td>
+                                    <td>{{ team_orders[5][2].Name }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center;">Win rate</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ win_rates[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ win_rates[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ win_rates[2] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ win_rates[3] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ win_rates[4] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ win_rates[5] }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-4 col-sm-offset-4" align="center">
+    <a class="btn btn-success btn-lg" href="{{ url_for('index') }}"
+       style="width: 267px; height: 60px;background: url(static/images/battle.jpg)">
+    </a>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!--<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+{% block title %}Result{% endblock %}
+
+{% block page_content %}
+<div class="landing-section features">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 align="center">{{ win_lose }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 align="center">Report</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3" >
+                <table class="table table-hover" cellpadding="10">
+                    <thead valign="middle">
+                    <tr>
+                        <th style="text-align: center;">Your Pokemon</th>
+                        <th></th>
+                        <th style="text-align: center;">Rival's Pokemon</th>
+                        <th style="text-align: center;">Winners</th>
+                    </tr>
+                    </thead>
+                    <tbody align="center">
+                    <tr>
+                        <td>{{ pk1_info.Name }}</td>
+                        <td>vs.</td>
+                        <td>{{ pk4_info.Name }}</td>
+                        <td>{{ winner_1 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ pk2_info.Name }}</td>
+                        <td>vs.</td>
+                        <td>{{ pk5_info.Name }}</td>
+                        <td>{{ winner_2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ pk3_info.Name }}</td>
+                        <td>vs.</td>
+                        <td>{{ pk6_info.Name }}</td>
+                        <td>{{ winner_3 }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-4 col-sm-offset-4" align="center">
+    <a class="btn btn-success btn-lg" href="{{ url_for('index') }}"
+       style="width: 267px; height: 60px;background: url(static/images/battle.jpg)">
+    </a>
+</div>
+<br>
+
+<!--<div align="center">-->
+    <!--<form action="{{ url_for('index') }}" method="post">-->
+        <!--<input type="submit" value="Back to homepage" style="width: 200px; height: 150%;" name="back" onclick="alert">-->
+    <!--</form>-->
+
+<!--</div>-->
+{% endblock %}
