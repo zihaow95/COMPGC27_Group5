@@ -1,4 +1,5 @@
 import numpy as np
+from itertools import combinations, permutations
 
 # from pokemon_query import queryPokemon, validName, getPokemonNames
 # bias = np.asarray([np.asarray([-0.41672516, -0.08315316, -2.1361076, 1.6402711, -1.79720985,
@@ -119,6 +120,12 @@ def feedforward(X):
     else:
         return 'win'
 
+def soloResult(X):
+    result = feedforward(X)
+    if X == 'win':
+        return 1
+    else:
+        return 0
 
 # battle1 = np.asarray([1, 0.5, 50, 64, 50, 45, 50, 41, 4, 1, 70, 70, 40, 60, 40, 60])
 # battle2 = np.asarray([0.25, 1, 50, 47, 50, 57, 50, 65, 0.5, 1, 60, 50, 150, 50, 150, 60])
@@ -194,3 +201,50 @@ def formFeatures(p1_info, p2_info):
 def prediction(info1, info2):
     features = formFeatures(info1, info2)
     return feedforward(features)
+
+
+def predict_wins(Team1Poke1, Team1Poke2, Team1Poke3, Team2Poke1, Team2Poke2, Team2Poke3):  #####
+    team1_list = [Team1Poke1, Team1Poke2, Team1Poke3]
+    team2_list = [Team2Poke1, Team2Poke2, Team2Poke3]
+    team1 = list(permutations(team1_list, 3))
+    for i in range(len(team1)):
+        team1[i] = list(team1[i])
+    team2 = list(permutations(team2_list, 3))
+    for i in range(len(team2)):
+        team2[i] = list(team2[i])
+
+    team = []
+    for i in range(len(team1)):
+        for j in range(len(team2)):
+            team.append(team1[i] + team2[j])
+
+    win_rates = []
+    wins = []
+    results = []
+    teams = []
+    w = [5, 5, 5, 5, 5, 5]  ########initial weights
+    for k in range(6):
+        test = team[6 * k:6 * (k + 1)]
+        result = []
+        win = []
+        for i in range(len(test)):
+            inputs = test[i][0:3]
+            if inputs not in teams:
+                teams.append(inputs)
+
+            for j in range(3):
+                example = formFeatures(test[i][j], test[i][j + 3])
+                output = soloResult(example)
+                result.append(output)
+            results.append([result[0], result[1], result[2]])
+            if np.sum(result) > 1:
+                win.append(1)
+                w[i] = w[i] - 1
+            else:
+                win.append(0)
+                w[i] = w[i] + 1
+        wins.append([win[0], win[1], win[2], win[3], win[4], win[5]])
+        win_rate = np.sum(np.array(win) * np.array(w)) / np.sum(w)
+        win_rates.append(win_rate)
+
+    return teams, win_rates

@@ -1,6 +1,6 @@
 import configparser
 import flask
-from flask import render_template, g, redirect
+from flask import render_template, g, redirect, url_for
 import sqlite3
 from pokemon_query import validName, queryPokemon, radar
 from nn import prediction
@@ -24,12 +24,20 @@ result = [0, 0, 0, 0, 0, 0]
 name_list = [0, 0, 0, 0, 0, 0]
 needToAddWarning = ['', '', '', '', '', '']
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if flask.request.method == 'GET':
+        return render_template("index.html")
+
+    elif flask.request.method == 'POST' and flask.request.form.get('query', None) == ' ':
+        return redirect(url_for('querypage', result=[0,0,0,0,0,0]))
+
+@app.route('/querypage/<result>/', methods=["GET", "POST"])
 def querypage():
     if flask.request.method == 'GET':
         result0 = {}
-        return render_template("querypage.html",  result1=result[0], result2=result[1], result3=result[2],
-                                   result4=result[3], result5=result[4], result6=result[5], result0=result0)
+        return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
+                               result4=result[3], result5=result[4], result6=result[5], result0=result0)
     # user's team
     # query 1st pokemon
     elif flask.request.method == 'POST' and flask.request.form.get('query1', None) == "query":
@@ -39,7 +47,7 @@ def querypage():
             result1 = queryPokemon(name)
             result[0] = result1
             radar(result1, 'result1')
-            return render_template("querypage.html", info = result,result1=result[0], result2=result[1], result3=result[2],
+            return render_template("querypage.html", result1=result[0], result2=result[1], result3=result[2],
                                    result4=result[3], result5=result[4], result6=result[5])
         else:
             return render_template("querypage.html", result2=result[1], result3=result[2],
@@ -198,6 +206,7 @@ def querypage():
                                    warning6="Please enter the correct name.")
 
     else:
+
         return render_template("querypage.html")
 
     if flask.request.method == 'POST' and flask.request.form.get('battle', None) == ' ':
@@ -215,9 +224,6 @@ def querypage():
                                    needToAddWarning5=needToAddWarning[4], needToAddWarning6=needToAddWarning[5])
         else:
             return redirect('simpleresultpage')
-
-
-            # return redirect('simpleresultpage')
 
 
 @app.route('/simpleresultpage', methods=["GET", "POST"])
@@ -252,7 +258,7 @@ def simpleresultpage():
                            win_lose=win_lose, winner_1=winner1, winner_2=winner2, winner_3=winner3)
 
     if flask.request.method == 'POST' and flask.request.form.get('back', None) == 'Back to homepage':
-        return redirect('querypage')
+        return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
