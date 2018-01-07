@@ -1,14 +1,7 @@
 import numpy as np
 from itertools import combinations, permutations
+import matplotlib.pyplot as plt
 
-# from pokemon_query import queryPokemon, validName, getPokemonNames
-# bias = np.asarray([np.asarray([-0.41672516, -0.08315316, -2.1361076, 1.6402711, -1.79720985,
-#                                -0.82247295, 0.50268592, -1.24528809, -1.06030302, -0.90919977]),
-#                    np.asarray([0.84780166, 1.82571246, 0.36449871, -1.011711, 0.74495357,
-#                                -0.60988426, -0.09355117, 1.20129206, -0.49430521, 0.11425103]),
-#                    np.asarray([-1.05433495, -0.2732333, -0.17596661, -0.95781359, -0.29816053,
-#                                -0.23611451, -0.56536253, -1.27882702, -1.29263377, -0.23341424]),
-#                    np.asarray([-1.1301799, 2.30144652])])
 
 bias = [np.asarray([-0.41672516, -0.08315316, -2.1361076, 1.6402711, -1.79720985,
                     -0.82247295, 0.50268592, -1.24528809, -1.06030302, -0.90919977]),
@@ -120,12 +113,6 @@ def feedforward(X):
     else:
         return 'win'
 
-def soloResult(X):
-    result = feedforward(X)
-    if X == 'win':
-        return 1
-    else:
-        return 0
 
 # battle1 = np.asarray([1, 0.5, 50, 64, 50, 45, 50, 41, 4, 1, 70, 70, 40, 60, 40, 60])
 # battle2 = np.asarray([0.25, 1, 50, 47, 50, 57, 50, 65, 0.5, 1, 60, 50, 150, 50, 150, 60])
@@ -202,8 +189,14 @@ def prediction(info1, info2):
     features = formFeatures(info1, info2)
     return feedforward(features)
 
+def soloResult(X):
+    result = feedforward(X)
+    if result == 'win':
+        return 1
+    else:
+        return 0
 
-def predict_wins(Team1Poke1, Team1Poke2, Team1Poke3, Team2Poke1, Team2Poke2, Team2Poke3):  #####
+def predict_wins(Team1Poke1, Team1Poke2, Team1Poke3, Team2Poke1, Team2Poke2, Team2Poke3):
     team1_list = [Team1Poke1, Team1Poke2, Team1Poke3]
     team2_list = [Team2Poke1, Team2Poke2, Team2Poke3]
     team1 = list(permutations(team1_list, 3))
@@ -222,7 +215,7 @@ def predict_wins(Team1Poke1, Team1Poke2, Team1Poke3, Team2Poke1, Team2Poke2, Tea
     wins = []
     results = []
     teams = []
-    w = [5, 5, 5, 5, 5, 5]  ########initial weights
+    w = [6, 6, 6, 6, 6, 6]  ########initial weights
     for k in range(6):
         test = team[6 * k:6 * (k + 1)]
         result = []
@@ -245,6 +238,31 @@ def predict_wins(Team1Poke1, Team1Poke2, Team1Poke3, Team2Poke1, Team2Poke2, Tea
                 w[i] = w[i] + 1
         wins.append([win[0], win[1], win[2], win[3], win[4], win[5]])
         win_rate = np.sum(np.array(win) * np.array(w)) / np.sum(w)
-        win_rates.append(win_rate)
+        win_rates.append(round(win_rate, 2))
 
     return teams, win_rates
+
+
+def sorted_win_rate(order, output):
+    orders = order.copy()
+    order_with_win_rate = []
+    for i in range(len(output)):
+        order_with_win_rate.append([orders[i], output[i]])
+    order_with_win_rate = sorted(order_with_win_rate, key = lambda x:x[1], reverse=True)
+
+    for i in range(len(output)):
+        orders[i] = order_with_win_rate[i][0]
+        output[i] = order_with_win_rate[i][1]
+
+    return orders, output
+
+
+def plot_win_rate(sorted_win_rate):
+    x = ['order 6', 'order 5', 'order 4', 'order 3', 'order2', 'order 1', ]
+    plt.rcdefaults()
+    fig, ax = plt.subplots()
+    ax.barh(np.arange(6), sorted_win_rate)
+    ax.set_yticks(np.arange(6))
+    ax.set_yticklabels(x)
+    plt.savefig("static/images/win_rates_hist.png")
+    return

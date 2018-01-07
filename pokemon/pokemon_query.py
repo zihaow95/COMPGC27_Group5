@@ -24,7 +24,11 @@ def getPokemonNames():
 def validName(name):
     name = name.replace(" ", "").strip().lower()
     if name in getPokemonNames():
-        return name
+        pokemondb = sqlite3.connect("pokemon.db")
+        cursor = pokemondb.cursor()
+        cursor.execute("SELECT Name FROM pokemon WHERE rename=='{}'".format(name))
+        pokemon_name = cursor.fetchall()
+        return pokemon_name[0][0]
     else:
         return 0
 
@@ -33,7 +37,7 @@ def queryPokemon(name):
     pokemon_info = {}
     pokemondb = sqlite3.connect("pokemon.db")
     cursor = pokemondb.cursor()
-    sql = "SELECT * FROM pokemon WHERE rename = '{}'".format(name)
+    sql = "SELECT * FROM pokemon WHERE Name = '{}'".format(name)
     cursor.execute(sql)
     pokemon = cursor.fetchall()
     info_key = ['ID', 'Name', 'rename', 'Type1', 'Type2', 'HP', 'Attack', 'Defense', 'Sp_Atk',
